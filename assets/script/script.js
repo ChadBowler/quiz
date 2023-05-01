@@ -243,30 +243,38 @@ function quizQuestion(current){
   
   function getAnswer1(){
     answerButton1.removeEventListener("click", getAnswer1);
+    answerButton2.removeEventListener("click", getAnswer2);
+    answerButton3.removeEventListener("click", getAnswer3);
+    answerButton4.removeEventListener("click", getAnswer4);
     var count = current;
     var answer = 1;
-    console.log(current);
     checkAnswer(count, answer);
   }
   function getAnswer2(){
+    answerButton1.removeEventListener("click", getAnswer1);
     answerButton2.removeEventListener("click", getAnswer2);
+    answerButton3.removeEventListener("click", getAnswer3);
+    answerButton4.removeEventListener("click", getAnswer4);
     var count = current;
     var answer = 2;
-    console.log(current);
     checkAnswer(count, answer);
   }
   function getAnswer3(){
+    answerButton1.removeEventListener("click", getAnswer1);
+    answerButton2.removeEventListener("click", getAnswer2);
     answerButton3.removeEventListener("click", getAnswer3);
+    answerButton4.removeEventListener("click", getAnswer4);
     var count = current;
     var answer = 3;
-    console.log(current);
     checkAnswer(count, answer);
   }
   function getAnswer4(){
+    answerButton1.removeEventListener("click", getAnswer1);
+    answerButton2.removeEventListener("click", getAnswer2);
+    answerButton3.removeEventListener("click", getAnswer3);
     answerButton4.removeEventListener("click", getAnswer4);
     var count = current;
     var answer = 4;
-    console.log(current);
     checkAnswer(count, answer);
   }
   
@@ -276,14 +284,7 @@ function quizQuestion(current){
   answerButton3 = document.getElementById("answerbutton3")
   answerButton4 = document.getElementById("answerbutton4")
 
-     
     
-    
-    
-
-  console.log(answerButton1);
-
-    console.log("CurrentA = "+current);
     document.getElementById("number").innerHTML = questions[current].number;
     document.getElementById("question").innerHTML = questions[current].question;
     document.getElementById("answer1").innerHTML = questions[current].answers[0];
@@ -303,7 +304,6 @@ function quizQuestion(current){
 
 function checkAnswer(current, answer){
   
-    console.log("CurrentC = "+current);
     console.log("Current Question number "+(current+1));
     console.log("You answered: " + answer);
     console.log("Correct answer: "+questions[current].correct_answer);
@@ -313,12 +313,12 @@ function checkAnswer(current, answer){
         console.log("correct"); 
         console.log("Your score: "+score);  
     } else{
-        console.log("incorrect");   
+        console.log("incorrect"); 
+        console.log("Your score: "+score);  
     }
     if(current<questions.length){
         current+=1;
-        console.log("CurrentD = "+current);
-        console.log("test");
+
         quizQuestion(current);
     }
     else{
