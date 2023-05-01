@@ -55,6 +55,7 @@ h1{
     gap: 10px;
     /* border: 5px solid black; */
     font-family: var(--sigmar);
+    text-shadow: 1px 1px var(--cream);
     font-size: 2rem;
     text-align: center;
     
@@ -62,8 +63,11 @@ h1{
 
 .answerscontainer {
     display: grid;
-    grid-template-columns: 30% 70%;
+    width: 50dvw;
+    grid-template-columns: 20% 80%;
+    text-shadow: 1px 1px var(--cream);
     gap: 1em;
+    text-align: left;
 }
 
 .imagecontainer {
@@ -82,7 +86,7 @@ h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
     margin-top: 0;
-    text-shadow: 1px 1px var(--gray);
+    text-shadow: 1px 1px var(--cream);
 }
 
 #logo {
@@ -93,7 +97,7 @@ h2 {
 #homebutton {
     position: absolute;
     bottom: 20px;
-
+    color: var(--cream);
     display: flex;
     margin:4% 30%;
     justify-content: center;
@@ -107,12 +111,14 @@ h2 {
     min-height: 50px;
     min-width: 150px;
     font-size: 2rem;
+    color: var(--cream);
+    
 }
 
 .button:hover {
     background-color: var(--drkred);
     border: 2px solid var(--gold);
-    color: var(--cream);
+    
     box-shadow: 5px 5px var(--gray);
 }
 
@@ -126,10 +132,12 @@ h2 {
     background-color: var(--drkblue);
     border: 2px solid var(--cream);
     font-family: var(--vina);
+    color: var(--cream);
     border-radius: 10px;
     height: 50px;
     width: 100px;
     font-size: 2rem;
+    display: none;
 }
 
 .answerbutton:hover {

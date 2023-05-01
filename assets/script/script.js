@@ -6,12 +6,12 @@ const questions =
         number: 1,
         question: "What is the HTML tag for the most important heading?",
         answers: [
-          "h1",
-          "h2",
-          "h3",
-          "h4"
+          "&#60;h4&#62;",
+          "&#60;h2&#62;",
+          "&#60;h3&#62;",
+          "&#60;h1&#62;"
         ],
-        correct_answer: 1
+        correct_answer: 4
       },
       {
         number: 2,
@@ -28,33 +28,33 @@ const questions =
         number: 3,
         question: "What is the JavaScript function for creating a new element?",
         answers: [
-          "document.createElement()",
           "document.getElementById()",
           "document.appendChild()",
+          "document.createElement()",
           "document.removeChild()"
         ],
-        correct_answer: 1
+        correct_answer: 3
       },      {
         number: 4,
         question: "What is the HTML tag for a paragraph?",
         answers: [
-          "p",
-          "div",
-          "span",
-          "ul"
+          "&#60;span&#62;",
+          "&#60;div&#62;",
+          "&#60;p&#62;",
+          "&#60;ul&#62;"
         ],
-        correct_answer: 1
+        correct_answer: 3
       },
       {
         number: 5,
         question: "What is the CSS property for setting the background color of an element?",
         answers: [
-          "background-color",
           "background-image",
+          "background-color",
           "background-repeat",
           "background-position"
         ],
-        correct_answer: 1
+        correct_answer: 2
       },
       {
         number: 6,
@@ -71,10 +71,10 @@ const questions =
         number: 7,
         question: "What is the HTML tag for a link?",
         answers: [
-          "a",
-          "b",
-          "i",
-          "u"
+          "&#60;a&#62;",
+          "&#60;b&#62;",
+          "&#60;i&#62;",
+          "&#60;u&#62;"
         ],
         correct_answer: 1
       },
@@ -102,10 +102,10 @@ const questions =
         number: 10,
         question: "What is the HTML tag for a table?",
         answers: [
-          "table",
-          "tr",
-          "td",
-          "th"
+          "&#60;table&#62;",
+          "&#60;tr&#62;",
+          "&#60;td&#62;",
+          "&#60;th&#62;"
         ],
         correct_answer: 1
       },
@@ -135,10 +135,10 @@ const questions =
         number: 13,
         question: "What is the HTML tag for a list?",
         answers: [
-          "ul",
-          "ol",
-          "li",
-          "dl"
+          "&#60;ul&#62;",
+          "&#60;ol&#62;",
+          "&#60;il&#62;",
+          "&#60;di&#62;"
         ],
         correct_answer: 1
       },
@@ -168,10 +168,10 @@ const questions =
         number: 16,
         question: "What is the HTML tag for an image?",
         answers: [
-          "img",
-          "video",
-          "audio",
-          "canvas"
+          "&#60;img&#62;",
+          "&#60;video&#62;",
+          "&#60;audio&#62;",
+          "&#60;canvas&#62;"
         ],
         correct_answer: 1
       },
@@ -201,10 +201,10 @@ const questions =
         number: 19,
         question: "What is the HTML tag for a form?",
         answers: [
-          "form",
-          "input",
-          "textarea",
-          "select"
+          "&#60;form&#62;",
+          "&#60;input&#62;",
+          "&#60;textarea&#62;",
+          "&#60;select&#62;"
         ],
         correct_answer: 1
       },
@@ -234,6 +234,15 @@ function startGame(){
     quizbutton.style.display = "none";
     readyHeader.style.display = "none";
     
+    var answerButton1 = document.getElementById("answerbutton1");
+    var answerButton2 = document.getElementById("answerbutton2");
+    var answerButton3 = document.getElementById("answerbutton3");
+    var answerButton4 = document.getElementById("answerbutton4");
+    answerButton1.style.display = "block";
+    answerButton2.style.display = "block";
+    answerButton3.style.display = "block";
+    answerButton4.style.display = "block";
+
     quizQuestion(current);
 }
 
