@@ -128,7 +128,7 @@ h2 {
     font-family: var(--vina);
     border-radius: 10px;
     height: 50px;
-    min-width: 100px;
+    width: 100px;
     font-size: 2rem;
 }
 
@@ -191,6 +191,28 @@ a:hover {
         text-align: center;
         font-family: var(--sigmar);
         font-size: 0.8rem;
+    }
+    .answerscontainer {
+        display: grid;
+        width: 90%;
+        grid-template-columns: 25% 75%;
+        gap: .5em;
+        font-size: 1rem;
+        white-space: pre-wrap;
+    }
+
+    .answerbutton {
+        background-color: var(--drkblue);
+        border: 2px solid var(--cream);
+        font-family: var(--vina);
+        border-radius: 10px;
+        height: 40px;
+        width: 75px;
+        font-size: 1.2rem;
+    }
+
+    #question{
+        font-size: 1.8rem;
     }
 }
 

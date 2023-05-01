@@ -17,10 +17,10 @@ const questions =
         number: 2,
         question: "What is the CSS property for setting the font size of an element?",
         answers: [
-          "`font-size`",
-          "`font-weight`",
-          "`font-family`",
-          "`color`"
+          "font-size",
+          "font-weight",
+          "font-family",
+          "color"
         ],
         correct_answer: 1
       },
@@ -28,10 +28,10 @@ const questions =
         number: 3,
         question: "What is the JavaScript function for creating a new element?",
         answers: [
-          "`document.createElement()`",
-          "`document.getElementById()`",
-          "`document.appendChild()`",
-          "`document.removeChild()`"
+          "document.createElement()",
+          "document.getElementById()",
+          "document.appendChild()",
+          "document.removeChild()"
         ],
         correct_answer: 1
       },      {
@@ -49,10 +49,10 @@ const questions =
         number: 5,
         question: "What is the CSS property for setting the background color of an element?",
         answers: [
-          "`background-color`",
-          "`background-image`",
-          "`background-repeat`",
-          "`background-position`"
+          "background-color",
+          "background-image",
+          "background-repeat",
+          "background-position"
         ],
         correct_answer: 1
       },
@@ -60,10 +60,10 @@ const questions =
         number: 6,
         question: "What is the JavaScript function for getting the value of an input element?",
         answers: [
-          "`document.getElementById('input').value`",
-          "`document.getElementById('input').innerHTML`",
-          "`document.getElementById('input').className`",
-          "`document.getElementById('input').style`"
+          "document.getElementById('input').value",
+          "document.getElementById('input').innerHTML",
+          "document.getElementById('input').className",
+          "document.getElementById('input').style"
         ],
         correct_answer: 1
       },
@@ -82,10 +82,10 @@ const questions =
         number: 8,
         question: "What is the CSS property for setting the text alignment of an element?",
         answers: [
-          "`text-align`",
-          "`text-decoration`",
-          "`text-transform`",
-          "`text-shadow`"
+          "text-align",
+          "text-decoration",
+          "text-transform",
+          "text-shadow"
         ],
         correct_answer: 1
       },
@@ -93,8 +93,8 @@ const questions =
         number: 9,
         question: "What is the JavaScript function for adding an event listener to an element?",
         answers: [
-          "`document.getElementById('element').addEventListener('click', function() { });`",
-          "`document.getElementById('element').onclick = function() { };`"
+          "document.getElementById('element').addEventListener('click', function() { });",
+          "document.getElementById('element').onclick = function() { };"
         ],
         correct_answer: 1
       },
@@ -113,10 +113,10 @@ const questions =
         number: 11,
         question: "What is the CSS property for setting the width of an element?",
         answers: [
-          "`width`",
-          "`height`",
-          "`margin`",
-          "`padding`"
+          "width",
+          "height",
+          "margin",
+          "padding"
         ],
         correct_answer: 1
       },
@@ -124,10 +124,10 @@ const questions =
         number: 12,
         question: "What is the JavaScript function for creating a new event?",
         answers: [
-          "`new Event('click')`",
-          "`new Event('mousedown')`",
-          "`new Event('mousemove')`",
-          "`new Event('mouseup')"
+          "new Event('click')",
+          "new Event('mousedown')",
+          "new Event('mousemove')",
+          "new Event('mouseup')"
         ],
         correct_answer: 1
       },
@@ -146,10 +146,10 @@ const questions =
         number: 14,
         question: "What is the CSS property for setting the list style type of a list?",
         answers: [
-          "`list-style-type`",
-          "`list-style-position`",
-          "`list-style-image`",
-          "`list-style-image`"
+          "list-style-type",
+          "list-style-position",
+          "list-style-image",
+          "list-style-image"
         ],
         correct_answer: 1
       },
@@ -157,10 +157,10 @@ const questions =
         number: 15,
         question: "What is the JavaScript function for getting the number of elements in an array?",
         answers: [
-          "`array.length`",
-          "`array.push()`",
-          "`array.pop()`",
-          "`array.sort()`"
+          "array.length",
+          "array.push()",
+          "array.pop()",
+          "array.sort()"
         ],
         correct_answer: 1
       },
@@ -179,10 +179,10 @@ const questions =
         number: 17,
         question: "What is the CSS property for setting the height of an image?",
         answers: [
-          "`height`",
-          "`width`",
-          "`margin`",
-          "`padding`"
+          "height",
+          "width",
+          "margin",
+          "padding"
         ],
         correct_answer: 1
       },
@@ -190,10 +190,10 @@ const questions =
         number: 18,
         question: "What is the JavaScript function for creating a new image?",
         answers: [
-          "`new Image()`",
-          "`new Canvas()`",
-          "`new Audio()`",
-          "`new Video()`"
+          "new Image()",
+          "new Canvas()",
+          "new Audio()",
+          "new Video()"
         ],
         correct_answer: 1
       },
