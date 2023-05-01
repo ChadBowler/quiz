@@ -30,6 +30,7 @@ header {
 }
 h1{
     margin: 0;
+    text-shadow: 1px 1px var(--cream);
 }
 
 .container {
@@ -44,8 +45,25 @@ h1{
 }
 
 .quizcontainer {
-    min-height: 90dvh;
-    min-width: 70dvw;
+    min-height: 80dvh;
+    min-width: 40dvw;
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 5px solid black; */
+    font-family: var(--sigmar);
+    font-size: 2rem;
+    text-align: center;
+    
+}
+
+.answerscontainer {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 1em;
 }
 
 .imagecontainer {
@@ -64,6 +82,7 @@ h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
     margin-top: 0;
+    text-shadow: 1px 1px var(--gray);
 }
 
 #logo {
@@ -98,6 +117,29 @@ h2 {
 }
 
 .button:active {
+    translate: 5px 5px;
+    box-shadow: none;
+}
+
+
+.answerbutton {
+    background-color: var(--drkblue);
+    border: 2px solid var(--cream);
+    font-family: var(--vina);
+    border-radius: 10px;
+    height: 50px;
+    min-width: 100px;
+    font-size: 2rem;
+}
+
+.answerbutton:hover {
+    background-color: var(--drkred);
+    border: 2px solid var(--gold);
+    color: var(--cream);
+    box-shadow: 5px 5px var(--gray);
+}
+
+.answerbutton:active {
     translate: 5px 5px;
     box-shadow: none;
 }
