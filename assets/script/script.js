@@ -1,4 +1,3 @@
-var score = 0;
 
 const questions =
     [ 
@@ -223,19 +222,45 @@ const questions =
       }
     
     ]
-    
+var score = 0;    
 var current = 0;
 var answerButton1 ="";
 var answerButton2 ="";
 var answerButton3 ="";
 var answerButton4 ="";
 function startGame(){
-    
+    //clear screen
     var quizbutton = document.getElementById("quizbutton");
     var readyHeader = document.getElementById("readyheader"); 
     quizbutton.style.display = "none";
     readyHeader.style.display = "none";
+    //create timer
+    const timer = document.createElement("div");
+    document.getElementById("quizcontainer").appendChild(timer);
+    timer.setAttribute("id", "timer");
+
+    var seconds = 100;
+    const runTimer = setInterval(startTimer, 100);
+    function startTimer(){
+      
+      timer.innerText = seconds;
+      seconds--;
     
+      if(seconds<20){
+        timer.setAttribute("class", "timerlow");
+      }
+  
+      if(seconds<1){
+        stopTimer();
+        timer.innerText = "TIME'S UP!" 
+      };
+    };
+
+    function stopTimer(){
+      clearInterval(runTimer);
+    }
+    
+    //display answer buttons
     var answerButton1 = document.getElementById("answerbutton1");
     var answerButton2 = document.getElementById("answerbutton2");
     var answerButton3 = document.getElementById("answerbutton3");
@@ -251,7 +276,7 @@ function startGame(){
 
 function quizQuestion(current){
   
-  
+  //clearing event listeners, assigning answer for checkAnswer
   function getAnswer1(){
     answerButton1.removeEventListener("click", getAnswer1);
     answerButton2.removeEventListener("click", getAnswer2);
@@ -295,18 +320,18 @@ function quizQuestion(current){
   answerButton3 = document.getElementById("answerbutton3")
   answerButton4 = document.getElementById("answerbutton4")
 
+  //display question and answers  
+  document.getElementById("number").innerHTML = questions[current].number;
+  document.getElementById("question").innerHTML = questions[current].question;
+  document.getElementById("answer1").innerHTML = questions[current].answers[0];
+  document.getElementById("answer2").innerHTML = questions[current].answers[1];
+  document.getElementById("answer3").innerHTML = questions[current].answers[2];
+  document.getElementById("answer4").innerHTML = questions[current].answers[3];
     
-    document.getElementById("number").innerHTML = questions[current].number;
-    document.getElementById("question").innerHTML = questions[current].question;
-    document.getElementById("answer1").innerHTML = questions[current].answers[0];
-    document.getElementById("answer2").innerHTML = questions[current].answers[1];
-    document.getElementById("answer3").innerHTML = questions[current].answers[2];
-    document.getElementById("answer4").innerHTML = questions[current].answers[3];
-      
-    answerButton1.addEventListener("click", getAnswer1); 
-    answerButton2.addEventListener("click", getAnswer2);
-    answerButton3.addEventListener("click", getAnswer3);
-    answerButton4.addEventListener("click", getAnswer4);
+  answerButton1.addEventListener("click", getAnswer1); 
+  answerButton2.addEventListener("click", getAnswer2);
+  answerButton3.addEventListener("click", getAnswer3);
+  answerButton4.addEventListener("click", getAnswer4);
   
     
 }

@@ -190,6 +190,19 @@ a:hover {
     color: var(--gold);
 }
 
+#timer{
+    min-height: 10dvh;
+    min-width: 10dvw;
+    /* border:5px solid black; */
+    position: absolute;
+    top: 5px;
+}
+
+.timerlow{
+    color: var(--drkred);
+    font-size: 3.5rem;
+}
+
 @media (max-width:690px) {
     #homebutton {
         position: relative;
