@@ -34,7 +34,7 @@ h1{
 }
 
 .container {
-    min-height: 90dvh;
+    min-height: 80dvh;
     min-width: 80dvw;
     display: flex;
     flex-direction: column;
@@ -96,10 +96,10 @@ h2 {
 }
 #homebutton {
     position: absolute;
-    bottom: 20px;
+    bottom: 5dvh;
     color: var(--cream);
     display: flex;
-    margin:4% 30%;
+    margin:4% 40%;
     justify-content: center;
 }
 
@@ -163,6 +163,12 @@ h2 {
     /* border: 5px solid black; */
 }
 
+ol{
+    margin: 0;
+    height: 100%;
+    /* padding: 0; */
+}
+
 li {
     margin: 6px;
 }
@@ -200,6 +206,11 @@ a:hover {
         font-family: var(--sigmar);
         font-size: 0.8rem;
     }
+
+    #readyheader{
+        font-size: 2.3rem;
+    }
+
     .answerscontainer {
         display: grid;
         width: 90%;
@@ -220,7 +231,47 @@ a:hover {
     }
 
     #question{
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width:350px) {
+    #homebutton {
+        position: relative;
+        bottom: 4px;
+    
+        display: flex;
+        margin:0px 20px 0px 30%;
+        justify-content: center;
+    }
+
+    header {
+        margin: 0;
+        text-align: center;
+        font-family: var(--sigmar);
+        font-size: 0.8rem;
+    }
+    .answerscontainer {
+        display: grid;
+        width: 90%;
+        grid-template-columns: 35% 75%;
+        gap: .5em;
+        font-size: 0.8rem;
+        white-space: pre-wrap;
+    }
+
+    .answerbutton {
+        background-color: var(--drkblue);
+        border: 2px solid var(--cream);
+        font-family: var(--vina);
+        border-radius: 10px;
+        height: 40px;
+        width: 75px;
+        font-size: 1.2rem;
+    }
+
+    #question{
+        font-size: 1.2rem;
     }
 }
 
@@ -238,10 +289,9 @@ a:hover {
 
     #homebutton {
         position: relative;
-        bottom: 4px;
-    
+        bottom: 15dvh;
         display: flex;
-        margin:20px 20px 10px 45%;
+        margin:0px 20px 10px 45%;
         justify-content: center;
     }
 }

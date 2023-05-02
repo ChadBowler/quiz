@@ -15,12 +15,12 @@ const questions =
       },
       {
         number: 2,
-        question: "What is the CSS property for setting the font size of an element?",
+        question: "What is the CSS property for setting the text size of an element?",
         answers: [
           "font-size",
           "font-weight",
           "font-family",
-          "color"
+          "text-size"
         ],
         correct_answer: 1
       },
@@ -71,12 +71,12 @@ const questions =
         number: 7,
         question: "What is the HTML tag for a link?",
         answers: [
-          "&#60;a&#62;",
           "&#60;b&#62;",
           "&#60;i&#62;",
-          "&#60;u&#62;"
+          "&#60;u&#62;",
+          "&#60;a&#62;"
         ],
-        correct_answer: 1
+        correct_answer: 4
       },
       {
         number: 8,
@@ -91,12 +91,14 @@ const questions =
       },
       {
         number: 9,
-        question: "What is the JavaScript function for adding an event listener to an element?",
+        question: "Which HTML tag will display text in italics?",
         answers: [
-          "document.getElementById('element').addEventListener('click', function() { });",
-          "document.getElementById('element').onclick = function() { };"
+          "&#60;em&#62;",
+          "&#60;sharp&#62;",
+          "&#60;i&#62;",
+          "both a and c"
         ],
-        correct_answer: 1
+        correct_answer: 4
       },
       {
         number: 10,
@@ -113,43 +115,43 @@ const questions =
         number: 11,
         question: "What is the CSS property for setting the width of an element?",
         answers: [
-          "width",
-          "height",
+          "wide",
+          "length",
           "margin",
-          "padding"
+          "width"
         ],
-        correct_answer: 1
+        correct_answer: 4
       },
       {
         number: 12,
-        question: "What is the JavaScript function for creating a new event?",
+        question: "What is the JavaScript syntax for creating a new event object?",
         answers: [
-          "new Event('click')",
-          "new Event('mousedown')",
-          "new Event('mousemove')",
-          "new Event('mouseup')"
+          "new.Event('event')",
+          "document.createEvent(type)",
+          "event.newEvent(event)",
+          "var Event('type')"
         ],
-        correct_answer: 1
+        correct_answer: 2
       },
       {
         number: 13,
-        question: "What is the HTML tag for a list?",
+        question: "What is the HTML tag for a list item?",
         answers: [
           "&#60;ul&#62;",
           "&#60;ol&#62;",
-          "&#60;il&#62;",
+          "&#60;li&#62;",
           "&#60;di&#62;"
         ],
-        correct_answer: 1
+        correct_answer: 3
       },
       {
         number: 14,
-        question: "What is the CSS property for setting the list style type of a list?",
+        question: "What is the CSS property for setting the type of list-item marker in a list?",
         answers: [
           "list-style-type",
           "list-style-position",
           "list-style-image",
-          "list-style-image"
+          "list-style-marker"
         ],
         correct_answer: 1
       },
@@ -168,19 +170,19 @@ const questions =
         number: 16,
         question: "What is the HTML tag for an image?",
         answers: [
+          "&#60;jpg&#62;",
           "&#60;img&#62;",
-          "&#60;video&#62;",
-          "&#60;audio&#62;",
+          "&#60;pic&#62;",
           "&#60;canvas&#62;"
         ],
-        correct_answer: 1
+        correct_answer: 2
       },
       {
         number: 17,
         question: "What is the CSS property for setting the height of an image?",
         answers: [
           "height",
-          "width",
+          "tall",
           "margin",
           "padding"
         ],
@@ -191,28 +193,28 @@ const questions =
         question: "What is the JavaScript function for creating a new image?",
         answers: [
           "new Image()",
-          "new Canvas()",
-          "new Audio()",
-          "new Video()"
+          "document.createElement('IMG')",
+          "both a and b",
+          "neither a nor b"
         ],
-        correct_answer: 1
+        correct_answer: 3
       },
       {
         number: 19,
         question: "What is the HTML tag for a form?",
         answers: [
-          "&#60;form&#62;",
           "&#60;input&#62;",
           "&#60;textarea&#62;",
+          "&#60;form&#62;",
           "&#60;select&#62;"
         ],
-        correct_answer: 1
+        correct_answer: 3
       },
       {
         number: 20,
-        question: "What is the CSS property for setting the border of an element?",
+        question: "How do you use CSS borders to create a circle?",
         answers: [
-          "border",
+          "border-radius",
           "border-width",
           "border-color",
           "border-style"
