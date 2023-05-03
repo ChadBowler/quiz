@@ -224,6 +224,8 @@ const questions =
     ]
 var score = 0;    
 var current = 0;
+var seconds = 0;
+var highScore = 0;
 var answerButton1 ="";
 var answerButton2 ="";
 var answerButton3 ="";
@@ -235,30 +237,8 @@ function startGame(){
     quizbutton.style.display = "none";
     readyHeader.style.display = "none";
     //create timer
-    const timer = document.createElement("div");
-    document.getElementById("quizcontainer").appendChild(timer);
-    timer.setAttribute("id", "timer");
-
-    var seconds = 100;
-    const runTimer = setInterval(startTimer, 100);
-    function startTimer(){
-      
-      timer.innerText = seconds;
-      seconds--;
+    createTimer();
     
-      if(seconds<20){
-        timer.setAttribute("class", "timerlow");
-      }
-  
-      if(seconds<1){
-        stopTimer();
-        timer.innerText = "TIME'S UP!" 
-      };
-    };
-
-    function stopTimer(){
-      clearInterval(runTimer);
-    }
     
     //display answer buttons
     var answerButton1 = document.getElementById("answerbutton1");
@@ -271,6 +251,43 @@ function startGame(){
     answerButton4.style.display = "block";
 
     quizQuestion(current);
+}
+
+function createTimer(){
+  const timer = document.createElement("div");
+    document.getElementById("quizcontainer").appendChild(timer);
+    timer.setAttribute("id", "timer");
+
+    seconds = 100;
+    const runTimer = setInterval(startTimer, 1000);
+    function startTimer(){
+      timer.innerText = seconds;
+      seconds--;
+    
+      if(seconds<20){
+        timer.setAttribute("class", "timerlow");
+      }
+  
+      if(seconds<1){
+        timer.innerText = "TIME'S UP!"
+        timer.setAttribute("class", "timeup");
+        console.log("Your score: "+score);
+      };
+
+      if(seconds<-3){
+        stopTimer();
+        try{
+          endGame();
+        }
+        catch{
+          console.log("oops");
+        }
+      }
+    };
+
+    function stopTimer(){
+      clearInterval(runTimer);
+    }
 }
 
 
@@ -349,19 +366,48 @@ function checkAnswer(current, answer){
         console.log("correct"); 
         console.log("Your score: "+score);  
     } else{
+        seconds-=5;
         console.log("incorrect"); 
         console.log("Your score: "+score);  
     }
-    if(current<questions.length){
+    if(current<(questions.length-1)){
         current+=1;
 
         quizQuestion(current);
     }
     else{
+        // stopTimer();
+        endGame();
+        console.log(seconds);
         console.log("Game Over");               
-    }
-    // return current;
-    
+    }   
+}
+
+function endGame(){
+  const clearTimer = document.getElementById("timer");
+  const answerContainer = document.getElementById("answerscontainer");
+  const quizContainer = document.getElementById("quizcontainer");
+  const question = document.getElementById("question");
+  const questionNumber = document.getElementById("number");
+  const submitForm = document.getElementById("submitinits");
+  const hstext = document.getElementById("highscoretext");
+  
+
+
+  if(seconds<=0){
+    highScore = 0;
+  }
+  else{
+    highScore = seconds;
+  }
+  console.log(highScore);
+  questionNumber.remove();
+  question.remove();
+  answerContainer.remove(); 
+  clearTimer.remove();
+  hstext.innerText = "Congratulations! Your score is: " + highScore;
+  submitForm.style.display = "block";
+  
 }
 
 // async function checkAnswer(questions){

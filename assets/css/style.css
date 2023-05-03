@@ -57,8 +57,45 @@ h1{
     font-family: var(--sigmar);
     text-shadow: 1px 1px var(--cream);
     font-size: 2rem;
+    text-align: center;    
+}
+
+#highscorecontainer{
+    min-height: 80dvh;
+    min-width: 40dvw;
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    /* border: 5px solid black; */
+    font-family: var(--sigmar);
+    text-shadow: 1px 1px var(--cream);
+    font-size: 2rem;
     text-align: center;
-    
+}
+
+#submitinits{
+    display: none;
+}
+
+#inits{
+    width: 10ch;
+    height: 40px;
+    font-size: 2rem;
+    font-family: var(--vina);
+    border: 2px solid var(--drkblue);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#submitform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .answerscontainer {
@@ -203,6 +240,17 @@ a:hover {
     font-size: 3.5rem;
 }
 
+.timeup{
+    color: var(--drkred);
+    font-size: 3.5rem;
+    animation: scaleup 3s 1;
+}
+
+@keyframes scaleup{
+    50%{scale: 2; translate: 55px;}
+    100%{scale: 1;}
+}
+
 @media (max-width:690px) {
     #homebutton {
         position: relative;
@@ -245,6 +293,11 @@ a:hover {
 
     #question{
         font-size: 1.6rem;
+    }
+
+    @keyframes scaleup{
+        50%{scale: 1.5; translate: 15px;}
+        100%{scale: 1;}
     }
 }
 
