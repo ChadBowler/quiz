@@ -1,227 +1,228 @@
 
 const questions =
-    [ 
-      {
-        number: 1,
-        question: "What is the HTML tag for the most important heading?",
-        answers: [
-          "&#60;h4&#62;",
-          "&#60;h2&#62;",
-          "&#60;h3&#62;",
-          "&#60;h1&#62;"
-        ],
-        correct_answer: 4
-      },
-      {
-        number: 2,
-        question: "What is the CSS property for setting the text size of an element?",
-        answers: [
-          "font-size",
-          "font-weight",
-          "font-family",
-          "text-size"
-        ],
-        correct_answer: 1
-      },
-      {
-        number: 3,
-        question: "What is the JavaScript function for creating a new element?",
-        answers: [
-          "document.getElementById()",
-          "document.appendChild()",
-          "document.createElement()",
-          "document.removeChild()"
-        ],
-        correct_answer: 3
-      },      {
-        number: 4,
-        question: "What is the HTML tag for a paragraph?",
-        answers: [
-          "&#60;span&#62;",
-          "&#60;div&#62;",
-          "&#60;p&#62;",
-          "&#60;ul&#62;"
-        ],
-        correct_answer: 3
-      },
-      {
-        number: 5,
-        question: "What is the CSS property for setting the background color of an element?",
-        answers: [
-          "background-image",
-          "background-color",
-          "background-repeat",
-          "background-position"
-        ],
-        correct_answer: 2
-      },
-      {
-        number: 6,
-        question: "What is the JavaScript function for getting the value of an input element?",
-        answers: [
-          "document.getElementById('input').value",
-          "document.getElementById('input').innerHTML",
-          "document.getElementById('input').className",
-          "document.getElementById('input').style"
-        ],
-        correct_answer: 1
-      },
-      {
-        number: 7,
-        question: "What is the HTML tag for a link?",
-        answers: [
-          "&#60;b&#62;",
-          "&#60;i&#62;",
-          "&#60;u&#62;",
-          "&#60;a&#62;"
-        ],
-        correct_answer: 4
-      },
-      {
-        number: 8,
-        question: "What is the CSS property for setting the text alignment of an element?",
-        answers: [
-          "text-align",
-          "text-decoration",
-          "text-transform",
-          "text-shadow"
-        ],
-        correct_answer: 1
-      },
-      {
-        number: 9,
-        question: "Which HTML tag will display text in italics?",
-        answers: [
-          "&#60;em&#62;",
-          "&#60;sharp&#62;",
-          "&#60;i&#62;",
-          "both a and c"
-        ],
-        correct_answer: 4
-      },
-      {
-        number: 10,
-        question: "What is the HTML tag for a table?",
-        answers: [
-          "&#60;table&#62;",
-          "&#60;tr&#62;",
-          "&#60;td&#62;",
-          "&#60;th&#62;"
-        ],
-        correct_answer: 1
-      },
-      {
-        number: 11,
-        question: "What is the CSS property for setting the width of an element?",
-        answers: [
-          "wide",
-          "length",
-          "margin",
-          "width"
-        ],
-        correct_answer: 4
-      },
-      {
-        number: 12,
-        question: "What is the JavaScript syntax for creating a new event object?",
-        answers: [
-          "new.Event('event')",
-          "document.createEvent(type)",
-          "event.newEvent(event)",
-          "var Event('type')"
-        ],
-        correct_answer: 2
-      },
-      {
-        number: 13,
-        question: "What is the HTML tag for a list item?",
-        answers: [
-          "&#60;ul&#62;",
-          "&#60;ol&#62;",
-          "&#60;li&#62;",
-          "&#60;di&#62;"
-        ],
-        correct_answer: 3
-      },
-      {
-        number: 14,
-        question: "What is the CSS property for setting the type of list-item marker in a list?",
-        answers: [
-          "list-style-type",
-          "list-style-position",
-          "list-style-image",
-          "list-style-marker"
-        ],
-        correct_answer: 1
-      },
-      {
-        number: 15,
-        question: "What is the JavaScript function for getting the number of elements in an array?",
-        answers: [
-          "array.length",
-          "array.push()",
-          "array.pop()",
-          "array.sort()"
-        ],
-        correct_answer: 1
-      },
-      {
-        number: 16,
-        question: "What is the HTML tag for an image?",
-        answers: [
-          "&#60;jpg&#62;",
-          "&#60;img&#62;",
-          "&#60;pic&#62;",
-          "&#60;canvas&#62;"
-        ],
-        correct_answer: 2
-      },
-      {
-        number: 17,
-        question: "What is the CSS property for setting the height of an image?",
-        answers: [
-          "height",
-          "tall",
-          "margin",
-          "padding"
-        ],
-        correct_answer: 1
-      },
-      {
-        number: 18,
-        question: "What is the JavaScript function for creating a new image?",
-        answers: [
-          "new Image()",
-          "document.createElement('IMG')",
-          "both a and b",
-          "neither a nor b"
-        ],
-        correct_answer: 3
-      },
-      {
-        number: 19,
-        question: "What is the HTML tag for a form?",
-        answers: [
-          "&#60;input&#62;",
-          "&#60;textarea&#62;",
-          "&#60;form&#62;",
-          "&#60;select&#62;"
-        ],
-        correct_answer: 3
-      },
-      {
-        number: 20,
-        question: "How do you use CSS borders to create a circle?",
-        answers: [
-          "border-radius",
-          "border-width",
-          "border-color",
-          "border-style"
-        ],
-        correct_answer: 1
-      }
-    
-    ]
+  [ 
+    {
+      number: 1,
+      question: "What is the HTML tag for the most important heading?",
+      answers: [
+        "&#60;h4&#62;",
+        "&#60;h2&#62;",
+        "&#60;h3&#62;",
+        "&#60;h1&#62;"
+      ],
+      correct_answer: 4
+    },
+    {
+      number: 2,
+      question: "What is the CSS property for setting the text size of an element?",
+      answers: [
+        "font-size",
+        "font-weight",
+        "font-family",
+        "text-size"
+      ],
+      correct_answer: 1
+    },
+    {
+      number: 3,
+      question: "What is the JavaScript function for creating a new element?",
+      answers: [
+        "document.getElementById()",
+        "document.appendChild()",
+        "document.createElement()",
+        "document.removeChild()"
+      ],
+      correct_answer: 3
+    },      {
+      number: 4,
+      question: "What is the HTML tag for a paragraph?",
+      answers: [
+        "&#60;span&#62;",
+        "&#60;div&#62;",
+        "&#60;p&#62;",
+        "&#60;ul&#62;"
+      ],
+      correct_answer: 3
+    },
+    {
+      number: 5,
+      question: "What is the CSS property for setting the background color of an element?",
+      answers: [
+        "background-image",
+        "background-color",
+        "background-repeat",
+        "background-position"
+      ],
+      correct_answer: 2
+    },
+    {
+      number: 6,
+      question: "What is the JavaScript function for getting the value of an input element?",
+      answers: [
+        "document.getElementById('input').value",
+        "document.getElementById('input').innerHTML",
+        "document.getElementById('input').className",
+        "document.getElementById('input').style"
+      ],
+      correct_answer: 1
+    },
+    {
+      number: 7,
+      question: "What is the HTML tag for a link?",
+      answers: [
+        "&#60;b&#62;",
+        "&#60;i&#62;",
+        "&#60;u&#62;",
+        "&#60;a&#62;"
+      ],
+      correct_answer: 4
+    },
+    {
+      number: 8,
+      question: "What is the CSS property for setting the text alignment of an element?",
+      answers: [
+        "text-align",
+        "text-decoration",
+        "text-transform",
+        "text-shadow"
+      ],
+      correct_answer: 1
+    },
+    {
+      number: 9,
+      question: "Which HTML tag will display text in italics?",
+      answers: [
+        "&#60;em&#62;",
+        "&#60;sharp&#62;",
+        "&#60;i&#62;",
+        "both a and c"
+      ],
+      correct_answer: 4
+    },
+    {
+      number: 10,
+      question: "What is the HTML tag for a table?",
+      answers: [
+        "&#60;table&#62;",
+        "&#60;tr&#62;",
+        "&#60;td&#62;",
+        "&#60;th&#62;"
+      ],
+      correct_answer: 1
+    },
+    {
+      number: 11,
+      question: "What is the CSS property for setting the width of an element?",
+      answers: [
+        "wide",
+        "length",
+        "margin",
+        "width"
+      ],
+      correct_answer: 4
+    },
+    {
+      number: 12,
+      question: "What is the JavaScript syntax for creating a new event object?",
+      answers: [
+        "new.Event('event')",
+        "document.createEvent(type)",
+        "event.newEvent(event)",
+        "var Event('type')"
+      ],
+      correct_answer: 2
+    },
+    {
+      number: 13,
+      question: "What is the HTML tag for a list item?",
+      answers: [
+        "&#60;ul&#62;",
+        "&#60;ol&#62;",
+        "&#60;li&#62;",
+        "&#60;di&#62;"
+      ],
+      correct_answer: 3
+    },
+    {
+      number: 14,
+      question: "What is the CSS property for setting the type of list-item marker in a list?",
+      answers: [
+        "list-style-type",
+        "list-style-position",
+        "list-style-image",
+        "list-style-marker"
+      ],
+      correct_answer: 1
+    },
+    {
+      number: 15,
+      question: "What is the JavaScript function for getting the number of elements in an array?",
+      answers: [
+        "array.length",
+        "array.push()",
+        "array.pop()",
+        "array.sort()"
+      ],
+      correct_answer: 1
+    },
+    {
+      number: 16,
+      question: "What is the HTML tag for an image?",
+      answers: [
+        "&#60;jpg&#62;",
+        "&#60;img&#62;",
+        "&#60;pic&#62;",
+        "&#60;canvas&#62;"
+      ],
+      correct_answer: 2
+    },
+    {
+      number: 17,
+      question: "What is the CSS property for setting the height of an image?",
+      answers: [
+        "height",
+        "tall",
+        "margin",
+        "padding"
+      ],
+      correct_answer: 1
+    },
+    {
+      number: 18,
+      question: "What is the JavaScript function for creating a new image?",
+      answers: [
+        "new Image()",
+        "document.createElement('IMG')",
+        "both a and b",
+        "neither a nor b"
+      ],
+      correct_answer: 3
+    },
+    {
+      number: 19,
+      question: "What is the HTML tag for a form?",
+      answers: [
+        "&#60;input&#62;",
+        "&#60;textarea&#62;",
+        "&#60;form&#62;",
+        "&#60;select&#62;"
+      ],
+      correct_answer: 3
+    },
+    {
+      number: 20,
+      question: "How do you use CSS borders to create a circle?",
+      answers: [
+        "border-radius",
+        "border-width",
+        "border-color",
+        "border-style"
+      ],
+      correct_answer: 1
+    }
+  
+  ]
+var players = []
 var score = 0;    
 var current = 0;
 var seconds = 0;
@@ -259,7 +260,7 @@ function createTimer(){
     timer.setAttribute("id", "timer");
 
     seconds = 100;
-    const runTimer = setInterval(startTimer, 100);
+    const runTimer = setInterval(startTimer, 1000);
     function startTimer(){
       timer.innerText = seconds;
       seconds--;
@@ -384,13 +385,13 @@ function checkAnswer(current, answer){
 }
 
 function endGame(){
-  const clearTimer = document.getElementById("timer");
   const answerContainer = document.getElementById("answerscontainer");
-  const quizContainer = document.getElementById("quizcontainer");
-  const question = document.getElementById("question");
-  const questionNumber = document.getElementById("number");
+  
   const submitForm = document.getElementById("submitinits");
+  const questionNumber = document.getElementById("number");
   const hstext = document.getElementById("highscoretext");
+  const question = document.getElementById("question");
+  const clearTimer = document.getElementById("timer");
   
 
 
@@ -411,21 +412,53 @@ function endGame(){
 }
 
 function processForm(){
+  const quizContainer = document.getElementById("quizcontainer");
+  const submitForm = document.getElementById("submitinits");
+  const hsHeader = document.createElement("h1")
+  hsHeader.innerText = "HIGH SCORES";
+  // const hsButton = document.getElementById("hsbutton");
+  
+  const scoreContainer = document.getElementById("scorecontainer");
+  
   var initials = document.getElementById("inits");
-  var player = {
-    inits: initials,
-    hs: highScore
-  }
-
-  var req = new XMLHttpRequest();
-  req.open("POST", "/action");
-
-  req.onload = function(){
-    if(req.status === 200){
-      alert("Your high score has been submitted!");
-    } else {
-      alert("Oops! Something went wrong.");
+  
+  console.log(initials.value);
+  const scoresList = document.createElement("ol");
+  scoresList.setAttribute("id", "scoreslist");
+  console.log(highScore);
+  scoreContainer.appendChild(scoresList);
+  
+  players.push({
+    playerName: initials.value,
+    score: highScore    
+  });
+  console.log(players);
+  for(var i=0;i<10;i++){
+    if(scoresList.childNodes.length >= 9){
+      break;
+    }
+    try{
+    var setScore = document.createElement("li");
+    scoresList.appendChild(setScore);
+    setScore.innerText = " " + players[i].playerName + " -  " + players[i].score;
+    }
+    catch{
+      var setScore = document.createElement("li");
+      scoresList.appendChild(setScore);
     }
   }
+  submitForm.remove();
+  quizContainer.insertBefore(hsHeader, scoreContainer);
+  scoreContainer.style.display = "block";
+  // var req = new XMLHttpRequest();
+  // req.open("POST", "/action");
+
+  // req.onload = function(){
+  //   if(req.status === 200){
+  //     alert("Your high score has been submitted!");
+  //   } else {
+  //     alert("Oops! Something went wrong.");
+  //   }
+  // }
   
 }

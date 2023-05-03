@@ -189,8 +189,8 @@ h2 {
     box-shadow: none;
 }
 
-.scorecontainer {
-    display: block;
+#scorecontainer {
+    display: none;
     min-height: 50dvh;
     width: 80dvw;
     padding: 5px;
@@ -200,7 +200,7 @@ h2 {
     /* border: 5px solid black; */
 }
 
-ol{
+#scoreslist{
     margin: 0;
     height: 100%;
     /* padding: 0; */
@@ -208,6 +208,7 @@ ol{
 
 li {
     margin: 6px;
+    text-align: justify;
 }
 
 a {
