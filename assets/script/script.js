@@ -259,7 +259,7 @@ function createTimer(){
     timer.setAttribute("id", "timer");
 
     seconds = 100;
-    const runTimer = setInterval(startTimer, 1000);
+    const runTimer = setInterval(startTimer, 100);
     function startTimer(){
       timer.innerText = seconds;
       seconds--;
@@ -410,65 +410,22 @@ function endGame(){
   
 }
 
-// async function checkAnswer(questions){
-//     let clickedButton;
-//     clickedButton= document.getElementById("answerbutton1").addEventListener("click", function(){
-//         clickedButton = 1;
-//         console.log("correct");
-//     });
-//     document.getElementById("answerbutton2").addEventListener("click", function(){
-//         clickedButton = 2;
-//     });
-//     document.getElementById("answerbutton3").addEventListener("click", function(){
-//         clickedButton = 3;
-//     });
-//     document.getElementById("answerbutton4").addEventListener("click", function(){
-//         clickedButton = 4;
-//     });
+function processForm(){
+  var initials = document.getElementById("inits");
+  var player = {
+    inits: initials,
+    hs: highScore
+  }
 
-//     await clickedButton;
-//     if(clickedButton == questions.correct_answer){
-//         score +=1;
-//     }
-//     console.log(clickedButton);
-//     return score;
-// }
-// console.log(score);
+  var req = new XMLHttpRequest();
+  req.open("POST", "/action");
 
-
-
-
-
-
-
-
-
-//   console.log(questions[0]);
-
-//   for(var i=0;i<questions.length;i++){
-//     // console.log(questions[i].correct_answer);
-//     for(var x=0;x<questions[i].answers.length;x++){
-//         if((x+1)==questions[i].correct_answer){ 
-//             console.log(questions[i].question);
-//             console.log(questions[i].answers[x]);
-//         }
-        // else{
-        //     console.log('huh?')
-        // }
-//     }
-//   }
-
-//   const obj = [{
-//         hero: "Superman",
-//         powers:["Strength", "Speed", "Heat Vision", "Cold Breath"],
-//         powerlvl: 85
-//     },
-//     {
-//         hero: "Wonder Woman",
-//         powers:["Strength", "Speed", "Lasso of Truth", "Invisible Jet"],
-//         powerlvl: 95
-//     }
-//   ]
-//     console.log(obj[1]);
-
+  req.onload = function(){
+    if(req.status === 200){
+      alert("Your high score has been submitted!");
+    } else {
+      alert("Oops! Something went wrong.");
+    }
+  }
   
+}
