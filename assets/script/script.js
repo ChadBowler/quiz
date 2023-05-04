@@ -1,4 +1,4 @@
-
+//questions object
 const questions =
   [ 
     {
@@ -220,8 +220,8 @@ const questions =
       ],
       correct_answer: 1
     }
-  
   ]
+//setting global variables
 var players = []
 var score = 0;    
 var current = 0;
@@ -231,27 +231,29 @@ var answerButton1 ="";
 var answerButton2 ="";
 var answerButton3 ="";
 var answerButton4 ="";
+
 function startGame(){
     //clear screen
     var quizbutton = document.getElementById("quizbutton");
     var readyHeader = document.getElementById("readyheader"); 
     quizbutton.style.display = "none";
     readyHeader.style.display = "none";
+
     //create timer
     createTimer();
     
-    
     //display answer buttons
-    var answerButton1 = document.getElementById("answerbutton1");
-    var answerButton2 = document.getElementById("answerbutton2");
-    var answerButton3 = document.getElementById("answerbutton3");
-    var answerButton4 = document.getElementById("answerbutton4");
-    answerButton1.style.display = "block";
-    answerButton2.style.display = "block";
-    answerButton3.style.display = "block";
-    answerButton4.style.display = "block";
-
-    quizQuestion(current);
+    const answerButtons = [
+      answerButton1 = document.getElementById("answerbutton1"),
+      answerButton2 = document.getElementById("answerbutton2"),
+      answerButton3 = document.getElementById("answerbutton3"),
+      answerButton4 = document.getElementById("answerbutton4")
+    ];
+    for(var i=0;i<answerButtons.length;i++){
+      answerButtons[i].style.display = "block";
+    };
+    //Start running through questions
+    quizQuestion(current, answerButtons);
 }
 
 function createTimer(){
@@ -292,52 +294,10 @@ function createTimer(){
 }
 
 
-function quizQuestion(current){
+function quizQuestion(current, answerButtons){
   
-  //clearing event listeners, assigning answer for checkAnswer
-  function getAnswer1(){
-    answerButton1.removeEventListener("click", getAnswer1);
-    answerButton2.removeEventListener("click", getAnswer2);
-    answerButton3.removeEventListener("click", getAnswer3);
-    answerButton4.removeEventListener("click", getAnswer4);
-    var count = current;
-    var answer = 1;
-    checkAnswer(count, answer);
-  }
-  function getAnswer2(){
-    answerButton1.removeEventListener("click", getAnswer1);
-    answerButton2.removeEventListener("click", getAnswer2);
-    answerButton3.removeEventListener("click", getAnswer3);
-    answerButton4.removeEventListener("click", getAnswer4);
-    var count = current;
-    var answer = 2;
-    checkAnswer(count, answer);
-  }
-  function getAnswer3(){
-    answerButton1.removeEventListener("click", getAnswer1);
-    answerButton2.removeEventListener("click", getAnswer2);
-    answerButton3.removeEventListener("click", getAnswer3);
-    answerButton4.removeEventListener("click", getAnswer4);
-    var count = current;
-    var answer = 3;
-    checkAnswer(count, answer);
-  }
-  function getAnswer4(){
-    answerButton1.removeEventListener("click", getAnswer1);
-    answerButton2.removeEventListener("click", getAnswer2);
-    answerButton3.removeEventListener("click", getAnswer3);
-    answerButton4.removeEventListener("click", getAnswer4);
-    var count = current;
-    var answer = 4;
-    checkAnswer(count, answer);
-  }
+ 
   
-
-  answerButton1 = document.getElementById("answerbutton1")
-  answerButton2 = document.getElementById("answerbutton2")
-  answerButton3 = document.getElementById("answerbutton3")
-  answerButton4 = document.getElementById("answerbutton4")
-
   //display question and answers  
   document.getElementById("number").innerHTML = questions[current].number;
   document.getElementById("question").innerHTML = questions[current].question;
@@ -345,48 +305,46 @@ function quizQuestion(current){
   document.getElementById("answer2").innerHTML = questions[current].answers[1];
   document.getElementById("answer3").innerHTML = questions[current].answers[2];
   document.getElementById("answer4").innerHTML = questions[current].answers[3];
-    
-  answerButton1.addEventListener("click", getAnswer1); 
-  answerButton2.addEventListener("click", getAnswer2);
-  answerButton3.addEventListener("click", getAnswer3);
-  answerButton4.addEventListener("click", getAnswer4);
   
+  for(var j=0; j<answerButtons.length; j++){
+    console.log(j);
+    answerButtons[j].addEventListener("click", getAnswer);
+    
+  }
+   //clearing event listeners, assigning answer for checkAnswer
+  //since I set the values of the buttons to letters, I added numbers as a data set for answer checking
+  function getAnswer(event){
+    for(var i=0;i<answerButtons.length;i++){
+      answerButtons[i].removeEventListener("click", getAnswer)
+    };
+    var count = current;
+    var answer = event.target.dataset.answer;
+    checkAnswer(count, answer, answerButtons);
+  }
     
 }
 
 
 
-function checkAnswer(current, answer){
+function checkAnswer(current, answer, answerButtons){
   
-    console.log("Current Question number "+(current+1));
-    console.log("You answered: " + answer);
-    console.log("Correct answer: "+questions[current].correct_answer);
-
     if(answer==questions[current].correct_answer){
        score+=1;
-        console.log("correct"); 
-        console.log("Your score: "+score);  
     } else{
-        seconds-=5;
-        console.log("incorrect"); 
-        console.log("Your score: "+score);  
+        seconds-=5;  
     }
     if(current<(questions.length-1)){
         current+=1;
 
-        quizQuestion(current);
+        quizQuestion(current, answerButtons);
     }
     else{
-        // stopTimer();
-        endGame();
-        console.log(seconds);
-        console.log("Game Over");               
+        endGame();              
     }   
 }
 
 function endGame(){
   const answerContainer = document.getElementById("answerscontainer");
-  
   const submitForm = document.getElementById("submitinits");
   const questionNumber = document.getElementById("number");
   const hstext = document.getElementById("highscoretext");
@@ -412,26 +370,25 @@ function endGame(){
 }
 
 function processForm(){
+  //getting elements
   const quizContainer = document.getElementById("quizcontainer");
   const submitForm = document.getElementById("submitinits");
   const hsHeader = document.createElement("h1")
   hsHeader.innerText = "HIGH SCORES";
   // const hsButton = document.getElementById("hsbutton");
-  
   const scoreContainer = document.getElementById("scorecontainer");
-  
   var initials = document.getElementById("inits");
-  
-  console.log(initials.value);
   const scoresList = document.createElement("ol");
   scoresList.setAttribute("id", "scoreslist");
-  console.log(highScore);
   scoreContainer.appendChild(scoresList);
-  
+  //adding scores and initials to high score list
   players.push({
     playerName: initials.value,
     score: highScore    
   });
+
+  localStorage.setItem("highScoresList", JSON.stringify(players));
+
   console.log(players);
   for(var i=0;i<10;i++){
     if(scoresList.childNodes.length >= 9){
@@ -450,15 +407,6 @@ function processForm(){
   submitForm.remove();
   quizContainer.insertBefore(hsHeader, scoreContainer);
   scoreContainer.style.display = "block";
-  // var req = new XMLHttpRequest();
-  // req.open("POST", "/action");
-
-  // req.onload = function(){
-  //   if(req.status === 200){
-  //     alert("Your high score has been submitted!");
-  //   } else {
-  //     alert("Oops! Something went wrong.");
-  //   }
-  // }
+  
   
 }
