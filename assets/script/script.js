@@ -258,58 +258,56 @@ function startGame(){
 
 function createTimer(){
   const timer = document.createElement("div");
-    document.getElementById("quizcontainer").appendChild(timer);
-    timer.setAttribute("id", "timer");
+  document.getElementById("quizcontainer").appendChild(timer);
+  timer.setAttribute("id", "timer");
+  seconds = 100;
+  const runTimer = setInterval(startTimer, 1000);
 
-    seconds = 100;
-    const runTimer = setInterval(startTimer, 1000);
-    function startTimer(){
-      timer.innerText = seconds;
-      seconds--;
-    
-      if(seconds<20){
-        timer.setAttribute("class", "timerlow");
-      }
+  function startTimer(){
+    timer.innerText = seconds;
+    seconds--;
   
-      if(seconds<1){
-        timer.innerText = "TIME'S UP!"
-        timer.setAttribute("class", "timeup");
-        console.log("Your score: "+score);
-      };
+    if(seconds<20){
+      timer.setAttribute("class", "timerlow");
+    }
 
-      if(seconds<-3){
-        stopTimer();
-        try{
-          endGame();
-        }
-        catch{
-          console.log("oops");
-        }
-      }
+    if(seconds<1){
+      timer.innerText = "TIME'S UP!"
+      timer.setAttribute("class", "timeup");
+      console.log("Your score: "+score);
     };
 
-    function stopTimer(){
-      clearInterval(runTimer);
+    if(seconds<-3){
+      stopTimer();
+      try{
+        endGame();
+      }
+      catch{
+        console.log("oops");
+      }
     }
+  };
+
+  function stopTimer(){
+    clearInterval(runTimer);
+  }
 }
 
 
 function quizQuestion(current, answerButtons){
   
- 
-  
   //display question and answers  
   document.getElementById("number").innerHTML = questions[current].number;
   document.getElementById("question").innerHTML = questions[current].question;
+  //TODO: add for loop here later
   document.getElementById("answer1").innerHTML = questions[current].answers[0];
   document.getElementById("answer2").innerHTML = questions[current].answers[1];
   document.getElementById("answer3").innerHTML = questions[current].answers[2];
   document.getElementById("answer4").innerHTML = questions[current].answers[3];
-  
+  //adding event listeners to the buttons
   for(var j=0; j<answerButtons.length; j++){
     console.log(j);
-    answerButtons[j].addEventListener("click", getAnswer);
-    
+    answerButtons[j].addEventListener("click", getAnswer); 
   }
    //clearing event listeners, assigning answer for checkAnswer
   //since I set the values of the buttons to letters, I added numbers as a data set for answer checking
@@ -324,12 +322,11 @@ function quizQuestion(current, answerButtons){
     
 }
 
-
-
 function checkAnswer(current, answer, answerButtons){
   
     if(answer==questions[current].correct_answer){
        score+=1;
+       //TODO: add in a correct/incorrect visually on the screen for the user
     } else{
         seconds-=5;  
     }
@@ -351,22 +348,19 @@ function endGame(){
   const question = document.getElementById("question");
   const clearTimer = document.getElementById("timer");
   
-
-
   if(seconds<=0){
     highScore = 0;
   }
   else{
     highScore = seconds;
   }
-  console.log(highScore);
-  questionNumber.remove();
-  question.remove();
-  answerContainer.remove(); 
+  //TODO: adjust score message if user gets 0
+  answerContainer.remove();
+  questionNumber.remove(); 
   clearTimer.remove();
+  question.remove();
   hstext.innerText = "Congratulations! Your score is: " + highScore;
   submitForm.style.display = "block";
-  
 }
 
 function processForm(){
@@ -382,15 +376,26 @@ function processForm(){
   scoresList.setAttribute("id", "scoreslist");
   scoreContainer.appendChild(scoresList);
   //adding scores and initials to high score list
+
+  //TODO: Use a try/catch to grab hs list from local storage
+  //TODO: sort hs list and post it to the hs page
+
+  try {
+    players = JSON.parse(localStorage.getItem("scoresList"));
+  } catch (error) {
+    players = [];
+  }
   players.push({
     playerName: initials.value,
     score: highScore    
   });
 
-  localStorage.setItem("highScoresList", JSON.stringify(players));
+  players.sort(function(a, b){return b.score - a.score});
+
+  localStorage.setItem("scoresList", JSON.stringify(players));
 
   console.log(players);
-  for(var i=0;i<10;i++){
+  for(var i=0;i<players.length;i++){
     if(scoresList.childNodes.length >= 9){
       break;
     }
@@ -408,5 +413,38 @@ function processForm(){
   quizContainer.insertBefore(hsHeader, scoreContainer);
   scoreContainer.style.display = "block";
   
-  
 }
+
+const bigContainer = document.getElementById("bigcontainer");
+bigContainer.addEventListener("mouseover", displayHighScores);
+
+function displayHighScores(){
+  bigContainer.removeEventListener("mouseover", displayHighScores);
+  const highScoreContainer = document.getElementById("highscorecontainer");
+  const highScoresList = document.createElement("ol");
+  highScoresList.setAttribute("id", "highscoreslist");
+  highScoreContainer.appendChild(highScoresList);
+  
+  try {
+    players = JSON.parse(localStorage.getItem("scoresList"));
+  } catch (error) {
+    alert("There are no high scores.");
+  }
+  console.log(players);
+  for(var i=0;i<players.length;i++){
+    if(highScoresList.childNodes.length >= 9){
+      break;
+    }
+    try{
+    var setScore = document.createElement("li");
+    highScoresList.appendChild(setScore);
+    setScore.innerText = " " + players[i].playerName + " -  " + players[i].score;
+    }
+    catch{
+      var setScore = document.createElement("li");
+      highScoresList.appendChild(setScore);
+    }
+  }
+  highScoreContainer.style.display = "block";
+}
+
