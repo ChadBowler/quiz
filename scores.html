@@ -11,7 +11,7 @@
     
     <title>Coding Quiz - High Scores</title>
 </head>
-<body>
+<body onpageshow="displayHighScores()">
     <header>
         <h1>HIGH SCORES</h1>
     </header>
@@ -22,8 +22,9 @@
             
         </div>
     </div>
+    <input type="button" class="button" id="homebutton" value="Go Home" onclick="window.location='./index.html'">
     <script src="./assets/script/script.js"></script> 
 </body>
-<input type="button" class="button" id="homebutton" value="Go Home" onclick="window.location='./index.html'">
+
 <!-- <script type="module" src="https://github.com/ChadBowler/quiz/blob/main/assets/script/quiz-questions.json"></script> -->
 </html>

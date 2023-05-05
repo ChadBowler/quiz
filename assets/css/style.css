@@ -98,6 +98,8 @@ h1{
     align-items: center;
 }
 
+
+
 .answerscontainer {
     display: grid;
     width: 50dvw;
@@ -132,12 +134,14 @@ h2 {
     width: 50%;
 }
 #homebutton {
-    position: absolute;
+    position: relative;
     bottom: 5dvh;
     color: var(--cream);
     display: flex;
-    margin:4% 40%;
+    margin:auto;
     justify-content: center;
+    justify-self: flex-end;
+    align-self: center;
 }
 
 .button {
@@ -247,19 +251,77 @@ a:hover {
     animation: scaleup 3s 1;
 }
 
+#hslink{
+    font-size: 1.5rem;
+}
+
 @keyframes scaleup{
     50%{scale: 2; translate: 55px;}
     100%{scale: 1;}
 }
 
+@media (max-width:960px) {
+    .imagecontainer {
+        min-height: 70dvh;
+        min-width: 40dvw;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+         /* border: 5px solid black;  */
+    }
+    h2 {
+        font-size: 6rem;
+    }
+
+    #hslink {
+        font-size: 2rem;
+    }
+
+    #labelcontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .button {
+        background-color: var(--drkblue);
+        border: 2px solid var(--cream);
+        font-family: var(--vina);
+        border-radius: 10px;
+        min-height: 100px;
+        min-width: 250px;
+        font-size: 3rem;
+        color: var(--cream);
+        margin-left: auto;
+        margin-right: auto;
+    } 
+
+    #inits {
+        font-size: 4rem;
+    }
+    
+
+    #homebutton {
+        position: relative;
+        bottom: 7dvh;
+        display: flex;
+        /* margin:0px 20px 10px 45%; */
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 @media (max-width:690px) {
     #homebutton {
         position: relative;
         bottom: 4px;
-    
         display: flex;
-        margin:0px 20px 0px 30%;
+        margin:auto;
         justify-content: center;
+        
     }
 
     header {
@@ -273,6 +335,29 @@ a:hover {
         font-size: 2.3rem;
     }
 
+    .button {
+        
+        min-height: 50px;
+        min-width: 150px;
+        font-size: 2rem;
+        
+    }
+
+    #labelcontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    #hslink {
+        font-size: 2rem;
+    }
+
     .answerscontainer {
         display: grid;
         width: 90%;
@@ -280,6 +365,14 @@ a:hover {
         gap: .5em;
         font-size: 1rem;
         white-space: pre-wrap;
+    }
+    .highscoretext {
+        font-size: 1.6rem;
+    }
+
+    
+    #inits {
+        font-size: 2rem;
     }
 
     .answerbutton {
@@ -306,9 +399,7 @@ a:hover {
     #homebutton {
         position: relative;
         bottom: 4px;
-    
         display: flex;
-        margin:0px 20px 0px 30%;
         justify-content: center;
     }
 
@@ -327,6 +418,14 @@ a:hover {
         white-space: pre-wrap;
     }
 
+    .highscoretext {
+        font-size: 1.4rem;
+    }
+
+    #hslink {
+        font-size: 1.3rem;
+    }
+
     .answerbutton {
         background-color: var(--drkblue);
         border: 2px solid var(--cream);
@@ -342,23 +441,5 @@ a:hover {
     }
 }
 
-@media (min-width:960px) {
-    .imagecontainer {
-        min-height: 70dvh;
-        min-width: 40dvw;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        /* border: 5px solid black; */
-    }
 
-    #homebutton {
-        position: relative;
-        bottom: 15dvh;
-        display: flex;
-        margin:0px 20px 10px 45%;
-        justify-content: center;
-    }
 }

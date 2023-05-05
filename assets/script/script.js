@@ -232,6 +232,22 @@ var answerButton2 ="";
 var answerButton3 ="";
 var answerButton4 ="";
 
+const highScoreContainer = document.getElementById("highscorecontainer");
+const bigContainer = document.getElementById("bigcontainer");
+
+// try {
+//   highScoreContainer.addEventListener("pageshow", displayHighScores);
+    
+// } catch (error) {
+  
+// }
+const submitButton = document.getElementById("buttonsubmit");
+try {
+  submitButton.addEventListener("click", processForm);  
+} catch (error) {
+  
+}
+
 function startGame(){
     //clear screen
     var quizbutton = document.getElementById("quizbutton");
@@ -265,13 +281,17 @@ function createTimer(){
 
   function startTimer(){
     timer.innerText = seconds;
-    seconds--;
+    if(highScore == 0){
+      seconds--;
+    } else {
+      stopTimer();
+    }
   
     if(seconds<20){
       timer.setAttribute("class", "timerlow");
     }
 
-    if(seconds<1){
+    if(seconds<0){
       timer.innerText = "TIME'S UP!"
       timer.setAttribute("class", "timeup");
       console.log("Your score: "+score);
@@ -280,10 +300,16 @@ function createTimer(){
     if(seconds<-3){
       stopTimer();
       try{
+        if(seconds<=0){
+          highScore = 0;
+        }
+        else{
+          highScore = seconds;
+        }
         endGame();
       }
       catch{
-        console.log("oops");
+        return;
       }
     }
   };
@@ -306,7 +332,6 @@ function quizQuestion(current, answerButtons){
   document.getElementById("answer4").innerHTML = questions[current].answers[3];
   //adding event listeners to the buttons
   for(var j=0; j<answerButtons.length; j++){
-    console.log(j);
     answerButtons[j].addEventListener("click", getAnswer); 
   }
    //clearing event listeners, assigning answer for checkAnswer
@@ -336,10 +361,17 @@ function checkAnswer(current, answer, answerButtons){
         quizQuestion(current, answerButtons);
     }
     else{
+      if(seconds<=0){
+        highScore = 0;
+      }
+      else{
+        highScore = seconds;
+      }
         endGame();              
     }   
 }
 
+//ends the game when the timer runs out. Displays the initials submit form
 function endGame(){
   const answerContainer = document.getElementById("answerscontainer");
   const submitForm = document.getElementById("submitinits");
@@ -348,103 +380,129 @@ function endGame(){
   const question = document.getElementById("question");
   const clearTimer = document.getElementById("timer");
   
-  if(seconds<=0){
-    highScore = 0;
+  
+  
+
+  try {
+    answerContainer.remove();
+    questionNumber.remove(); 
+    clearTimer.remove();
+    question.remove();
+  } catch (error) {
+    
   }
-  else{
-    highScore = seconds;
-  }
-  //TODO: adjust score message if user gets 0
-  answerContainer.remove();
-  questionNumber.remove(); 
-  clearTimer.remove();
-  question.remove();
+  if(highScore == 0){
+    const slugHead = document.createElement("p");
+    slugHead.setAttribute("class","highscoretext");
+    submitForm.insertBefore(slugHead, submitForm.children[1]);
+    hstext.innerText = "Your score is: " + highScore
+    slugHead.innerText = " Better Luck next time...slughead!"
+  }   else{
   hstext.innerText = "Congratulations! Your score is: " + highScore;
+  }
   submitForm.style.display = "block";
+  try {
+    submitButton.addEventListener("click", processForm);  
+  } catch (error) {
+    
+  }
 }
 
-function processForm(){
+
+
+
+function processForm(event){
+  event.preventDefault();
+  submitButton.removeEventListener("click", processForm);
   //getting elements
   const quizContainer = document.getElementById("quizcontainer");
   const submitForm = document.getElementById("submitinits");
   const hsHeader = document.createElement("h1")
   hsHeader.innerText = "HIGH SCORES";
-  // const hsButton = document.getElementById("hsbutton");
   const scoreContainer = document.getElementById("scorecontainer");
   var initials = document.getElementById("inits");
   const scoresList = document.createElement("ol");
   scoresList.setAttribute("id", "scoreslist");
-  scoreContainer.appendChild(scoresList);
-  //adding scores and initials to high score list
+  console.log("initials: " + initials.value);
+  if(initials.value == ""){
+    alert("Please submit your initials.");
+    endGame();
+  } else {
 
-  //TODO: Use a try/catch to grab hs list from local storage
-  //TODO: sort hs list and post it to the hs page
+    scoreContainer.appendChild(scoresList);
+    //adding scores and initials to high score list
 
-  try {
+    
     players = JSON.parse(localStorage.getItem("scoresList"));
-  } catch (error) {
-    players = [];
+    
+    if(players!==null){
+        
+      players.push({
+        playerName: initials.value,
+        score: highScore    
+      });
+    } else {
+      players = [];
+      players.push({
+        playerName: initials.value,
+        score: highScore    
+      });
+    }
+
+    players.sort(function(a, b){return b.score - a.score});
+    localStorage.setItem("scoresList", JSON.stringify(players));
+    window.location.assign("scores.html");
   }
-  players.push({
-    playerName: initials.value,
-    score: highScore    
-  });
-
-  players.sort(function(a, b){return b.score - a.score});
-
-  localStorage.setItem("scoresList", JSON.stringify(players));
-
-  console.log(players);
-  for(var i=0;i<players.length;i++){
-    if(scoresList.childNodes.length >= 9){
-      break;
-    }
-    try{
-    var setScore = document.createElement("li");
-    scoresList.appendChild(setScore);
-    setScore.innerText = " " + players[i].playerName + " -  " + players[i].score;
-    }
-    catch{
-      var setScore = document.createElement("li");
-      scoresList.appendChild(setScore);
-    }
-  }
-  submitForm.remove();
-  quizContainer.insertBefore(hsHeader, scoreContainer);
-  scoreContainer.style.display = "block";
+  // for(var i=0;i<players.length;i++){
+  //   if(scoresList.childNodes.length >= 9){
+  //     break;
+  //   }
+  //   try{
+  //   var setScore = document.createElement("li");
+  //   scoresList.appendChild(setScore);
+  //   setScore.innerText = " " + players[i].playerName + " -  " + players[i].score;
+  //   }
+  //   catch{
+  //     var setScore = document.createElement("li");
+  //     scoresList.appendChild(setScore);
+  //   }
+  // }
+  // submitForm.remove();
+  // quizContainer.insertBefore(hsHeader, scoreContainer);
+  // scoreContainer.style.display = "block";
   
 }
 
-const bigContainer = document.getElementById("bigcontainer");
-bigContainer.addEventListener("mouseover", displayHighScores);
+
 
 function displayHighScores(){
   bigContainer.removeEventListener("mouseover", displayHighScores);
-  const highScoreContainer = document.getElementById("highscorecontainer");
+  
   const highScoresList = document.createElement("ol");
   highScoresList.setAttribute("id", "highscoreslist");
   highScoreContainer.appendChild(highScoresList);
   
-  try {
-    players = JSON.parse(localStorage.getItem("scoresList"));
-  } catch (error) {
-    alert("There are no high scores.");
-  }
-  console.log(players);
-  for(var i=0;i<players.length;i++){
-    if(highScoresList.childNodes.length >= 9){
-      break;
-    }
-    try{
-    var setScore = document.createElement("li");
-    highScoresList.appendChild(setScore);
-    setScore.innerText = " " + players[i].playerName + " -  " + players[i].score;
-    }
-    catch{
+  
+  players = JSON.parse(localStorage.getItem("scoresList"));
+  
+  if(players!==null){
+    for(var i=0;i<players.length;i++){
+      if(highScoresList.childNodes.length >= 10){
+        break;
+      }
+      try{
       var setScore = document.createElement("li");
       highScoresList.appendChild(setScore);
+      setScore.innerText = " " + players[i].playerName + " -  " + players[i].score;
+      }
+      catch{
+        var setScore = document.createElement("li");
+        highScoresList.appendChild(setScore);
+      }
     }
+    highScoreContainer.style.display = "block";
+  } else {
+    highScoreContainer.innerText = "No high scores to display";
   }
-  highScoreContainer.style.display = "block";
 }
 
