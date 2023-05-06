@@ -3,10 +3,13 @@
 * Coding Quiz is a timed quiz with questions about HTML, CSS, and JavaScript
 
 
-## Screenshot
+## Screenshots
 
+![Coding Quiz - Home](https://user-images.githubusercontent.com/127648744/236595654-89b936a5-cf3c-45c9-86f9-6c8f072f3963.png)
 
-## Deployed URL:
+![Coding Quiz - Quiz](https://user-images.githubusercontent.com/127648744/236595664-db476ab1-a7a6-457a-a12b-c1c3c4dc1671.png)
+
+## Deployed URL: https://chadbowler.github.io/quiz/index.html
 
 ## Usage
 
@@ -30,3 +33,4 @@
 ## Contact
 
 * You can contact me at cbowlerdev@gmail.com
+
