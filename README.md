@@ -2,7 +2,13 @@
 
 * Coding Quiz is a timed quiz with questions about HTML, CSS, and JavaScript
 
-### Usage
+
+## Screenshot
+
+
+## Deployed URL:
+
+## Usage
 
 * The user experience should be pretty straight forward. Use the buttons to navigate around the quiz site.
 * If you get lost, you can always hit the "Go Home" button to take you back to the beginning.
