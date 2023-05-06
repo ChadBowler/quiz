@@ -231,16 +231,11 @@ var answerButton1 ="";
 var answerButton2 ="";
 var answerButton3 ="";
 var answerButton4 ="";
-
+const indicator = document.getElementById("indicator");
+const correct = document.getElementById("correct");
+const incorrect = document.getElementById("incorrect");
 const highScoreContainer = document.getElementById("highscorecontainer");
 const bigContainer = document.getElementById("bigcontainer");
-
-// try {
-//   highScoreContainer.addEventListener("pageshow", displayHighScores);
-    
-// } catch (error) {
-  
-// }
 const submitButton = document.getElementById("buttonsubmit");
 try {
   submitButton.addEventListener("click", processForm);  
@@ -319,10 +314,7 @@ function createTimer(){
   }
 }
 
-
 function quizQuestion(current, answerButtons){
-  
-  //display question and answers  
   document.getElementById("number").innerHTML = questions[current].number;
   document.getElementById("question").innerHTML = questions[current].question;
   //TODO: add for loop here later
@@ -330,6 +322,10 @@ function quizQuestion(current, answerButtons){
   document.getElementById("answer2").innerHTML = questions[current].answers[1];
   document.getElementById("answer3").innerHTML = questions[current].answers[2];
   document.getElementById("answer4").innerHTML = questions[current].answers[3];
+  
+  indicator.style.display = "block";
+  indicator.classList.add("indicatorbox");
+  
   //adding event listeners to the buttons
   for(var j=0; j<answerButtons.length; j++){
     answerButtons[j].addEventListener("click", getAnswer); 
@@ -348,16 +344,31 @@ function quizQuestion(current, answerButtons){
 }
 
 function checkAnswer(current, answer, answerButtons){
-  
+  let ding = new Audio('assets/audio/mixkit-correct-answer-tone-2870.wav');
+  let bzzt = new Audio('assets/audio/mixkit-game-show-buzz-in-3090.wav');
     if(answer==questions[current].correct_answer){
        score+=1;
-       //TODO: add in a correct/incorrect visually on the screen for the user
+       correct.animate(
+        [
+        {translate: "15px", color: "var(--green)", fontSize: "3.5rem"},
+        {color: "var(--gray"}
+        ],
+        1000
+       );
+       ding.play();
     } else{
-        seconds-=5;  
+        seconds-=5; 
+        incorrect.animate(
+          [
+          {translate: "15px", color: "var(--drkred)", fontSize: "3.5rem"},
+          {color: "var(--gray"}
+          ],
+          1000
+         );
+         bzzt.play();
     }
     if(current<(questions.length-1)){
         current+=1;
-
         quizQuestion(current, answerButtons);
     }
     else{
@@ -380,18 +391,18 @@ function endGame(){
   const question = document.getElementById("question");
   const clearTimer = document.getElementById("timer");
   
-  
-  
-
   try {
     answerContainer.remove();
     questionNumber.remove(); 
     clearTimer.remove();
-    question.remove();
-  } catch (error) {
-    
+    indicator.remove();
+    question.remove();  
+  } catch (error) { 
   }
+  
   if(highScore == 0){
+    let wah = new Audio('assets/audio/Wah Wah Trombone.wav');
+    wah.play();
     const slugHead = document.createElement("p");
     slugHead.setAttribute("class","highscoretext");
     submitForm.insertBefore(slugHead, submitForm.children[1]);
@@ -408,9 +419,6 @@ function endGame(){
   }
 }
 
-
-
-
 function processForm(event){
   event.preventDefault();
   submitButton.removeEventListener("click", processForm);
@@ -423,20 +431,15 @@ function processForm(event){
   var initials = document.getElementById("inits");
   const scoresList = document.createElement("ol");
   scoresList.setAttribute("id", "scoreslist");
-  console.log("initials: " + initials.value);
   if(initials.value == ""){
     alert("Please submit your initials.");
     endGame();
   } else {
-
     scoreContainer.appendChild(scoresList);
     //adding scores and initials to high score list
-
-    
     players = JSON.parse(localStorage.getItem("scoresList"));
     
     if(players!==null){
-        
       players.push({
         playerName: initials.value,
         score: highScore    
@@ -453,35 +456,14 @@ function processForm(event){
     localStorage.setItem("scoresList", JSON.stringify(players));
     window.location.assign("scores.html");
   }
-  // for(var i=0;i<players.length;i++){
-  //   if(scoresList.childNodes.length >= 9){
-  //     break;
-  //   }
-  //   try{
-  //   var setScore = document.createElement("li");
-  //   scoresList.appendChild(setScore);
-  //   setScore.innerText = " " + players[i].playerName + " -  " + players[i].score;
-  //   }
-  //   catch{
-  //     var setScore = document.createElement("li");
-  //     scoresList.appendChild(setScore);
-  //   }
-  // }
-  // submitForm.remove();
-  // quizContainer.insertBefore(hsHeader, scoreContainer);
-  // scoreContainer.style.display = "block";
   
 }
 
-
-
 function displayHighScores(){
-  bigContainer.removeEventListener("mouseover", displayHighScores);
-  
+  bigContainer.removeEventListener("mouseover", displayHighScores); 
   const highScoresList = document.createElement("ol");
   highScoresList.setAttribute("id", "highscoreslist");
   highScoreContainer.appendChild(highScoresList);
-  
   
   players = JSON.parse(localStorage.getItem("scoresList"));
   

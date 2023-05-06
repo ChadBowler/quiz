@@ -1,6 +1,5 @@
 *{
     box-sizing: border-box;
-    /* border: 5px solid black; */
 }
 
 :root {
@@ -10,10 +9,10 @@
     --drkred: #791900;
     --gold: #FAB319;
     --gray: #506266;
+    --green: #0CF25D;
     --sigmar: 'Sigmar', cursive;
     --vina: 'Vina Sans', cursive;
 }
-
 
 body {
     margin: 0;
@@ -28,6 +27,7 @@ header {
     font-family: var(--sigmar);
     font-size: 2rem;
 }
+
 h1{
     margin: 0;
     text-shadow: 1px 1px var(--cream);
@@ -53,7 +53,6 @@ h1{
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    /* border: 5px solid black; */
     font-family: var(--sigmar);
     text-shadow: 1px 1px var(--cream);
     font-size: 2rem;
@@ -69,7 +68,6 @@ h1{
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    /* border: 5px solid black; */
     font-family: var(--sigmar);
     text-shadow: 1px 1px var(--cream);
     font-size: 2rem;
@@ -98,8 +96,6 @@ h1{
     align-items: center;
 }
 
-
-
 .answerscontainer {
     display: grid;
     width: 50dvw;
@@ -116,8 +112,7 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    /* border: 5px solid black; */
+    align-items: center;  
 }
 
 h2 {
@@ -129,10 +124,10 @@ h2 {
 }
 
 #logo {
-    
     height: 50%;
     width: 50%;
 }
+
 #homebutton {
     position: relative;
     bottom: 5dvh;
@@ -152,14 +147,12 @@ h2 {
     min-height: 50px;
     min-width: 150px;
     font-size: 2rem;
-    color: var(--cream);
-    
+    color: var(--cream); 
 }
 
 .button:hover {
     background-color: var(--drkred);
     border: 2px solid var(--gold);
-    
     box-shadow: 5px 5px var(--gray);
 }
 
@@ -167,7 +160,6 @@ h2 {
     translate: 5px 5px;
     box-shadow: none;
 }
-
 
 .answerbutton {
     background-color: var(--drkblue);
@@ -201,13 +193,16 @@ h2 {
     margin: 10px;
     font-family: var(--vina);
     font-size: 2rem;
-    /* border: 5px solid black; */
+    
 }
 
 #scoreslist{
     margin: 0;
     height: 100%;
-    /* padding: 0; */
+}
+
+#indicator{
+    display: none;
 }
 
 li {
@@ -218,8 +213,8 @@ li {
 a {
     text-decoration: none;
     font-family: var(--sigmar);
-    /* justify-self: flex-end; */
 }
+
 a:active {
     color: black;
 }
@@ -235,7 +230,6 @@ a:hover {
 #timer{
     min-height: 10dvh;
     min-width: 10dvw;
-    /* border:5px solid black; */
     position: absolute;
     top: 5px;
 }
@@ -255,6 +249,24 @@ a:hover {
     font-size: 1.5rem;
 }
 
+#correct, #incorrect{
+    margin: 20px;
+    position: absolute;
+}
+
+#correct {
+    top: 0;
+    left: 0;
+}
+
+.indicatorbox{
+    position: relative;
+    height: 75px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
 @keyframes scaleup{
     50%{scale: 2; translate: 55px;}
     100%{scale: 1;}
@@ -269,7 +281,6 @@ a:hover {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-         /* border: 5px solid black;  */
     }
     h2 {
         font-size: 6rem;
@@ -303,12 +314,10 @@ a:hover {
         font-size: 4rem;
     }
     
-
     #homebutton {
         position: relative;
         bottom: 7dvh;
         display: flex;
-        /* margin:0px 20px 10px 45%; */
         justify-content: center;
         margin-left: auto;
         margin-right: auto;
@@ -335,12 +344,10 @@ a:hover {
         font-size: 2.3rem;
     }
 
-    .button {
-        
+    .button { 
         min-height: 50px;
         min-width: 150px;
         font-size: 2rem;
-        
     }
 
     #labelcontainer {
@@ -370,7 +377,6 @@ a:hover {
         font-size: 1.6rem;
     }
 
-    
     #inits {
         font-size: 2rem;
     }
@@ -409,6 +415,7 @@ a:hover {
         font-family: var(--sigmar);
         font-size: 0.8rem;
     }
+    
     .answerscontainer {
         display: grid;
         width: 90%;

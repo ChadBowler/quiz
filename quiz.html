@@ -8,11 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sigmar&family=Vina+Sans&display=swap" rel="stylesheet">
-    
     <title>Coding Quiz - Quiz</title>
 </head>
 <body>
-    
     <div class="quizcontainer" id="quizcontainer">
         <h1 id="readyheader">Are you ready?</h1>
         <input type="button" class="button" id="quizbutton" value="Click to Start" onclick="startGame()">
@@ -28,24 +26,23 @@
             <input type="button" class="answerbutton" id="answerbutton4" data-answer="4" value="D">
             <div id="answer4"></div>
         </div>
+        <div id="indicator">
+            <span id="correct">&#x2714;</span><span id="incorrect">&#x2716;</span>
+        </div>
         <div class="answerscontainer" id="submitinits">
             <p class="highscoretext" id="highscoretext"></p>
             <form id="submitform">
                 <div id="labelcontainer">
                     <label for="initials" id="label">Initials:</label>
-                    <input type="text" name="initials" maxlength="3" minlength="1" required id="inits"><br>
+                    <input type="text" name="initials" maxlength="3" minlength="1" id="inits"><br>
                 </div>
                 <input type="reset" value="Submit" class="button" id="buttonsubmit">
             </form>
         </div>
-        <div class="scorecontainer" id="scorecontainer">
-            
+        <div class="scorecontainer" id="scorecontainer">   
         </div>
-        
     </div>
     <input type="button" class="button" id="homebutton" value="Go Home" onclick="window.location='./index.html'">
     <script src="./assets/script/script.js"></script>
 </body>
-
-<!-- <script type="module" src="https://github.com/ChadBowler/quiz/blob/main/assets/script/quiz-questions.json"></script> -->
 </html>
